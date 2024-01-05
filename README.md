@@ -28,9 +28,15 @@ Please attempt the solve the problems described:
 **Question 1 - IP Address**
 
 What is the Bash command to discover the IP Address of `www.skillsunion.com`?
+- https://forum.huawei.com/enterprise/en/difference-between-dig-and-nslookup/thread/689608776220557312-667213860488228864#:~:text=nslookup%20is%20an%20easy%2Dto,work%20with%20different%20record%20kinds.
 
 ```sh
-# Answer here
+# name server lookup - used to query domain name system (DNS) data, get fundamental DNS data such as IP addresses related to domain names.
+nslookup www.skillsunion.com 
+```
+```sh
+# domain information groper - strong and flexible tool for DNS record queries, better choice for experts and network administrators looking into comprehensive DNS analysis
+dig www.skillsunion.com 
 ```
 
 ---
@@ -40,7 +46,7 @@ What is the Bash command to discover the IP Address of `www.skillsunion.com`?
 What is the command to copy a directory from `~/my_project` to `/etc/projects`?
 
 ```sh
-# Answer here
+cp ~/my_project /etc/projects
 ```
 ---
 
@@ -50,10 +56,33 @@ Implement a bash script that does the follow:
 1. Convert a string "one,two,three" into an array delimited by comma (,).
 1. Loop through the array and print each element.
 
+nano script.sh
+
 ```sh
 # Answer here
-```
+#!/bin/bash
 
+# Define a string
+string="one,two,three"
+
+# Set the IFS (Internal Field Separator) to comma
+IFS=','
+
+# Use read to bash convert string to array
+read -ra myvar <<< "$string"
+
+# Output the array and its length
+echo "My array: ${myvar[@]}"
+echo "Number of elements in the array: ${#myvar[@]}"
+```
+make code executable 
+```sh
+chmod +x filename.sh
+```
+run file
+```
+./script.sh
+```
 ---
 
 **Question 4 - System Architecture Diagram**
